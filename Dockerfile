@@ -4,18 +4,19 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# ✅ Copy csproj first for better caching
+# Copy csproj first
 COPY CoachingAPI.csproj ./
+
+# ✅ Restore packages
 RUN dotnet restore "CoachingAPI.csproj"
 
-# ✅ Copy everything else
+# Copy all source
 COPY . .
 
-# ✅ Publish
+# ✅ Remove --no-restore flag (let it restore again to be safe)
 RUN dotnet publish "CoachingAPI.csproj" \
     -c Release \
-    -o /app/publish \
-    --no-restore
+    -o /app/publish
 
 # ═══════════════════════════════════════
 # Stage 2 — RUNTIME
@@ -25,7 +26,6 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
-# ✅ Render port
 EXPOSE 10000
 ENV ASPNETCORE_URLS=http://+:10000
 ENV ASPNETCORE_ENVIRONMENT=Production
