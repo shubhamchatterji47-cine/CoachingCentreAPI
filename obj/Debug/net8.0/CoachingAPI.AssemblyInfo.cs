@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CoachingAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4842c1cf9feb4c07ee10f8973ce5fa60dfc5ec5")]
 [assembly: System.Reflection.AssemblyProductAttribute("CoachingAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CoachingAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
